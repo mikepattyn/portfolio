@@ -6,7 +6,7 @@ Personal static site for Mike Pattyn: who I am, the applications under the mikep
 
 **Portfolio**:
 This Vite static site under `apps/portfolio`, a public Application gitlink ([mikepattyn/portfolio](https://github.com/mikepattyn/portfolio)). Still a platform Application: CDK and deploy stay on the umbrella; a pointer bump ships the site.
-_Avoid_: treating the path as an owned umbrella tree; nesting Email inside this remote; adding GitHub chrome on the public site
+_Avoid_: treating the path as an owned umbrella tree; nesting Email or Contact.Api inside this remote; adding GitHub chrome on the public site
 
 **CV**:
 First-party curriculum vitae at `/cv.html` (Vite multi-page entry next to `thanks.html`). Linked from contact alt and **SiteFooter**, not the hero and not the primary nav. Copy under `cv.*` in `src/i18n/{en,nl}.js`.
@@ -63,7 +63,7 @@ _Avoid_: calling them rules, slash commands, or prompts; treating a popular publ
 ## Boundaries
 
 - Owns marketing copy and static frontend only.
-- Contact delivery via `apps/portfolio/backend/` Lambda + shared `packages/Mikepattyn.Email/` gitlink (not inline in the static site). The Lambda ProjectReferences Email and builds only from the umbrella workspace.
+- Contact delivery via the `packages/Mikepattyn.Contact.Api` gitlink + shared `packages/Mikepattyn.Email` gitlink (not inline in the static site). The Lambda ProjectReferences Email and builds only from the umbrella workspace.
 - CDK: `Mikepattyn-Backend-Stack-Production` (API + Lambda), `Mikepattyn-BrandFrontend-Stack-Production` (S3 + CloudFront + `/api/*` origin), and `Mikepattyn-BrandFrontend-Stack-Development` (`dev.mikepattyn.nl`, static only — no `/api/*`).
 
 ## Stack
