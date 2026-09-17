@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" data-skin="classic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="When I needed a home, two people put keys in my hand in five weeks. This page is for them — and for the tools I sit down with now that I have a door to close."
+    />
+    <title>Thanks — Mike Pattyn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.skin.css" />
+    <link rel="stylesheet" href="/src/styles.classic.css" id="skin-classic" disabled />
+    <link rel="stylesheet" href="/src/styles.stitch.css" id="skin-stitch" disabled />
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        var stored = localStorage.getItem('locale');
+        var fromBrowser =
+          String(navigator.language || '')
+            .toLowerCase()
+            .indexOf('nl') === 0
+            ? 'nl'
+            : 'en';
+        document.documentElement.lang = stored === 'en' || stored === 'nl' ? stored : fromBrowser;
+        var classicSheet = document.getElementById('skin-classic');
+        var stitchSheet = document.getElementById('skin-stitch');
+        if (localStorage.getItem('skin') === 'stitch') {
+          document.documentElement.setAttribute('data-skin', 'stitch');
+          if (classicSheet) classicSheet.disabled = true;
+          if (stitchSheet) stitchSheet.disabled = false;
+        } else if (classicSheet) {
+          classicSheet.disabled = false;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body data-i18n-title="thanks.meta.title" data-i18n-description="thanks.meta.description">
+    <a class="skip-link" href="#thanks-title" data-i18n="skip.toContent">Skip to content</a>
+
+    <header class="site-nav">
+      <a
+        class="site-nav__brand"
+        href="/"
+        aria-label="Mike Pattyn home"
+        data-i18n-aria="nav.brandAria"
+      >
+        <img class="site-nav__photo" src="/images/mike-pattyn.png" alt="" width="36" height="36" />
+        <span class="site-nav__name">Mike Pattyn</span>
+      </a>
+      <div class="site-nav__right">
+        <button
+          type="button"
+          class="site-nav__toggle"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+          aria-label="Open menu"
+          data-i18n-aria="nav.openMenu"
+        >
+          <span class="site-nav__toggle-bars" aria-hidden="true"></span>
+        </button>
+        <nav
+          id="site-nav-menu"
+          class="site-nav__links"
+          aria-label="Primary"
+          data-i18n-aria="nav.ariaPrimary"
+        >
+          <a href="/#approach" data-i18n="nav.approach">How I work</a>
+          <a href="/#work" data-i18n="nav.work">Work</a>
+          <a href="/underhood.html" data-i18n="nav.underHood">Under the hood</a>
+          <a href="/rabbithole.html" data-i18n="nav.mentors">The rabbit hole · essay</a>
+          <a href="/thanks.html" aria-current="page" data-i18n="nav.thanks">Thanks</a>
+          <a href="/#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div
+          class="locale-toggle"
+          role="group"
+          aria-label="Language"
+          data-i18n-aria="locale.ariaLabel"
+        >
+          <button type="button" class="locale-toggle__btn" data-locale="en" aria-pressed="false">
+            EN
+          </button>
+          <button type="button" class="locale-toggle__btn" data-locale="nl" aria-pressed="false">
+            NL
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <p class="site-cursor-chip" data-skin-only="stitch" data-i18n="hero.builtWithCursor">
+      Built with Cursor
+    </p>
+
+    <main id="top">
+      <section class="hero hero--page" aria-labelledby="thanks-title">
+        <div class="hero__atmosphere" data-skin-only="classic" aria-hidden="true">
+          <div class="hero__orb hero__orb--a"></div>
+          <div class="hero__orb hero__orb--b"></div>
+          <div class="hero__grid"></div>
+          <div class="hero__noise"></div>
+        </div>
+        <div class="hero__layout">
+          <div class="hero__content">
+            <p class="hero__brand" data-skin-only="classic">Mike Pattyn</p>
+            <p class="section__eyebrow" data-skin-only="stitch" data-i18n="hud.thanks">
+              SYS.LOG.THANKS
+            </p>
+            <h1 class="hero__headline" id="thanks-title" tabindex="-1" data-i18n="thanks.title">
+              Thanks
+            </h1>
+            <p class="hero__lede lede-hud" data-i18n="thanks.lede">
+              When I needed a home, two people put keys in my hand in five weeks. This page is for
+              them — and for the tools I sit down with now that I have a door to close.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#house" data-i18n="thanks.ctaHouse">This house</a>
+              <a class="btn btn--ghost" href="#tools" data-i18n="thanks.ctaTools">These tools</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="essay" id="thanks">
+        <div class="essay__body">
+          <section class="essay__chapter reveal" id="house" aria-labelledby="house-title">
+            <h2 id="house-title" data-i18n="thanks.house.title">This house</h2>
+            <nav
+              class="thanks-house__partners"
+              aria-label="SETTL. and Financieel Fit"
+              data-i18n-aria="thanks.house.partnersAria"
+            >
+              <a
+                class="thanks-house__partner"
+                href="https://settl.today"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="SETTL."
+              >
+                <img
+                  class="thanks-house__logo thanks-house__logo--settl"
+                  src="/images/logos/settl.png"
+                  alt="SETTL."
+                  width="884"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <a
+                class="thanks-house__partner"
+                href="https://www.financieelfit.nl"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Financieel Fit"
+              >
+                <img
+                  class="thanks-house__logo thanks-house__logo--financieel-fit"
+                  src="/images/logos/financieel-fit.svg"
+                  alt="Financieel Fit"
+                  width="443"
+                  height="186"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+            </nav>
+            <p class="thanks-house__body" data-i18n="thanks.house.body">
+              This house exists because Kiran at
+              <a href="https://settl.today" target="_blank" rel="noopener noreferrer">SETTL.</a>
+              and Michel Kersten at
+              <a href="https://www.financieelfit.nl" target="_blank" rel="noopener noreferrer"
+                >Financieel Fit</a
+              >
+              put keys in my hand in five weeks. They didn't treat it like paperwork. They treated
+              it like getting someone home. I still feel it every time the lock turns.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal" id="tools" aria-labelledby="tools-title">
+            <h2 id="tools-title" data-i18n="thanks.tools.title">These tools</h2>
+            <p data-i18n="thanks.tools.lede">
+              I sit down with these every day. The work only feels like mine when the tools fit my
+              hands.
+            </p>
+            <ul class="thanks-tools">
+              <li class="thanks-tools__item">
+                <h3 class="thanks-tools__name">
+                  <a
+                    href="https://cursor.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="thanks.tools.cursor.name"
+                    >Cursor</a
+                  >
+                </h3>
+                <p data-i18n="thanks.tools.cursor.why">
+                  I open it the way I open the day. Everything on this site started here.
+                </p>
+              </li>
+              <li class="thanks-tools__item">
+                <h3 class="thanks-tools__name">
+                  <a
+                    href="https://git-fork.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="thanks.tools.fork.name"
+                    >Fork</a
+                  >
+                </h3>
+                <p data-i18n="thanks.tools.fork.why">
+                  Dan and Tanya Pristupov made Git feel like a craft instead of a chore. Every
+                  change on this site is reviewed here before it goes anywhere.
+                </p>
+              </li>
+              <li class="thanks-tools__item">
+                <h3 class="thanks-tools__name">
+                  <a
+                    href="https://x.ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="thanks.tools.grok.name"
+                    >Grok Bot</a
+                  >
+                </h3>
+                <p data-i18n="thanks.tools.grok.why">
+                  LinkedIn replies, the inbox pile that used to eat an afternoon — I pass that here
+                  and get the hours back. Messages from the contact form are not in that pile. Those
+                  I answer myself.
+                </p>
+              </li>
+            </ul>
+          </section>
+
+          <p class="essay__back reveal">
+            <a href="/" data-i18n="thanks.back">← Back to the front page</a>
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__brand">Mike Pattyn</p>
+        <nav class="site-footer__links" aria-label="Footer" data-i18n-aria="footer.ariaLabel">
+          <a href="mailto:info@mikepattyn.nl">info@mikepattyn.nl</a>
+          <a
+            href="https://www.linkedin.com/in/mike-pattyn-033681103/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="/cv.html" data-i18n="footer.cv">CV</a>
+          <a href="/thanks.html" data-i18n="nav.thanks">Thanks</a>
+        </nav>
+        <button
+          type="button"
+          class="site-footer__skin"
+          data-skin-toggle
+          aria-pressed="false"
+          data-i18n="footer.skinToStitch"
+          data-i18n-aria="footer.skinAria"
+        >
+          Electric Emerald
+        </button>
+        <p class="site-footer__log" data-skin-only="stitch" data-i18n="hud.footerLog">
+          SYS.LOG // © 2026 Mike Pattyn
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/thanks.js"></script>
+  </body>
+</html>

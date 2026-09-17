@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en" data-skin="classic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A long thank-you: mentorship traced through Marley and Dre's lineage, Jobs, Hawking, Einstein and Socrates, home to my father's lap, the white rabbit of The Matrix, back to Egypt — and forward to AI."
+    />
+    <title>The Mentorship Echo — Mike Pattyn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.skin.css" />
+    <link rel="stylesheet" href="/src/styles.classic.css" id="skin-classic" disabled />
+    <link rel="stylesheet" href="/src/styles.stitch.css" id="skin-stitch" disabled />
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        var stored = localStorage.getItem('locale');
+        var fromBrowser =
+          String(navigator.language || '')
+            .toLowerCase()
+            .indexOf('nl') === 0
+            ? 'nl'
+            : 'en';
+        document.documentElement.lang = stored === 'en' || stored === 'nl' ? stored : fromBrowser;
+        var classicSheet = document.getElementById('skin-classic');
+        var stitchSheet = document.getElementById('skin-stitch');
+        if (localStorage.getItem('skin') === 'stitch') {
+          document.documentElement.setAttribute('data-skin', 'stitch');
+          if (classicSheet) classicSheet.disabled = true;
+          if (stitchSheet) stitchSheet.disabled = false;
+        } else if (classicSheet) {
+          classicSheet.disabled = false;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body data-i18n-title="echo.meta.title" data-i18n-description="echo.meta.description">
+    <a class="skip-link" href="#echo-title" data-i18n="skip.toContent">Skip to content</a>
+
+    <header class="site-nav">
+      <a
+        class="site-nav__brand"
+        href="/"
+        aria-label="Mike Pattyn home"
+        data-i18n-aria="nav.brandAria"
+      >
+        <img class="site-nav__photo" src="/images/mike-pattyn.png" alt="" width="36" height="36" />
+        <span class="site-nav__name">Mike Pattyn</span>
+      </a>
+      <div class="site-nav__right">
+        <button
+          type="button"
+          class="site-nav__toggle"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+          aria-label="Open menu"
+          data-i18n-aria="nav.openMenu"
+        >
+          <span class="site-nav__toggle-bars" aria-hidden="true"></span>
+        </button>
+        <nav
+          id="site-nav-menu"
+          class="site-nav__links"
+          aria-label="Primary"
+          data-i18n-aria="nav.ariaPrimary"
+        >
+          <a href="/#approach" data-i18n="nav.approach">How I work</a>
+          <a href="/#work" data-i18n="nav.work">Work</a>
+          <a href="/underhood.html" data-i18n="nav.underHood">Under the hood</a>
+          <a href="/rabbithole.html" aria-current="page" data-i18n="nav.mentors"
+            >The rabbit hole · essay</a
+          >
+          <a href="/thanks.html" data-i18n="nav.thanks">Thanks</a>
+          <a href="/#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div
+          class="locale-toggle"
+          role="group"
+          aria-label="Language"
+          data-i18n-aria="locale.ariaLabel"
+        >
+          <button type="button" class="locale-toggle__btn" data-locale="en" aria-pressed="false">
+            EN
+          </button>
+          <button type="button" class="locale-toggle__btn" data-locale="nl" aria-pressed="false">
+            NL
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <p class="site-cursor-chip" data-skin-only="stitch" data-i18n="hero.builtWithCursor">
+      Built with Cursor
+    </p>
+
+    <main id="top">
+      <section class="hero hero--page" aria-labelledby="echo-title">
+        <div class="hero__atmosphere" data-skin-only="classic" aria-hidden="true">
+          <div class="hero__orb hero__orb--a"></div>
+          <div class="hero__orb hero__orb--b"></div>
+          <div class="hero__grid"></div>
+          <div class="hero__noise"></div>
+        </div>
+        <div class="hero__layout">
+          <div class="hero__content">
+            <p class="hero__brand" data-skin-only="classic">Mike Pattyn</p>
+            <p class="section__eyebrow" data-skin-only="stitch" data-i18n="hud.echo">
+              SYS.LOG.RABBIT_HOLE
+            </p>
+            <h1 class="hero__headline" id="echo-title" tabindex="-1" data-i18n="echo.title">
+              The Mentorship Echo
+            </h1>
+            <p class="hero__lede lede-hud" data-i18n="echo.lede">
+              A long thank-you: through the people who taught me, back through questions older than
+              writing — and home again to my father's lap, then forward to the tools of today.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#essay" data-i18n="echo.eyebrow">The rabbit hole</a>
+              <a class="btn btn--ghost" href="/#teams" data-i18n="teams.eyebrow">Companies</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="essay" id="essay">
+        <div class="essay__body">
+          <p class="essay__opening lede-hud reveal" data-i18n="echo.opening">
+            This page is a long thank-you: an echo of mentorship that refuses to stop at the people
+            I've actually met. It goes back further than my career, further than this century — and
+            it comes home where it belongs.
+          </p>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.teams.title">The companies</h2>
+            <p data-i18n="echo.teams.p1">
+              The companies that shaped my working life —
+              <a href="/#teams">Givt and Methylium</a> — get their proper thanks on the front page.
+              Here it's enough to say: they took a craft I already carried and gave it a
+              professional shape.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.specialists.title">The specialists</h2>
+            <p data-i18n="echo.specialists.p1">
+              The specialists who taught me outside a job —
+              <a href="/#specialists">Anthony at The Coding Base, and Warren at Authress</a> — get
+              their thanks on the front page. Here it's enough to say: they taught the way I needed
+              to be taught.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.music.title">The soundtrack</h2>
+            <p data-i18n="echo.music.p1">
+              Mentorship has a soundtrack, too. Bob Marley taught without a classroom: three chords
+              and the conviction that a song could carry more truth than a lecture. Half the world
+              learned about justice, patience, and defiance from a man they never met. That is
+              mentorship at broadcast scale.
+            </p>
+            <p data-i18n="echo.music.p2">
+              And hip-hop may be the clearest living mentorship lineage we have. Dr. Dre heard
+              something in a young Snoop Dogg and put him on the record that changed both their
+              lives; a few years later he did it again for a broke kid from Detroit called Eminem —
+              and Eminem turned around and did the same for 50 Cent. One ear, passed down. Different
+              voices, same gift: someone who has been there says "you're next", and means it.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.jobs.title">Steve Jobs</h2>
+            <p data-i18n="echo.jobs.p1">
+              Steve Jobs learned craft from his father Paul, a machinist who taught him to make the
+              back of the fence as beautiful as the front — even though nobody would ever see it.
+              Jobs repeated that lesson for the rest of his life, insisting the inside of the
+              machine deserved the same care as the outside. Craft, it turns out, is a thing fathers
+              hand down.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.hawking.title">Stephen Hawking</h2>
+            <p data-i18n="echo.hawking.p1">
+              Stephen Hawking was told at twenty-one that he had about two years left. He took those
+              two years and stretched them into five decades of teaching — supervising students at
+              Cambridge, holding the chair once held by Newton, and, when his voice went, rebuilding
+              it out of software and a cheek muscle, one word at a time. Clarity under impossible
+              odds: he had every excuse to say less, and instead learned to say it better.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.einstein.title">Albert Einstein</h2>
+            <p data-i18n="echo.einstein.p1">
+              Albert Einstein insisted his gift was not talent but curiosity — the stubborn,
+              childlike refusal to stop asking. He also knew what a mentor was worth: as a boy he
+              was handed science books by a poor medical student the family fed once a week, and
+              those dinners aimed the rest of his life. The important thing, he said near the end of
+              it, is to never stop questioning.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.socrates.title">Socrates</h2>
+            <p data-i18n="echo.socrates.p1">
+              And behind them all stands Socrates, who wrote nothing down and still teaches.
+              Everything we know of him comes through his students — the surest sign of a great
+              mentor there is. He claimed no wisdom beyond knowing how little he knew, called
+              himself a midwife of other people's ideas, and gave his students the one gift that
+              never wears out: the question.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.father.title">My father</h2>
+            <p data-i18n="echo.father.p1">
+              I am five years old, on my father's lap. In front of us: a screen with white letters
+              on black — DOS. I don't understand what he is doing, but I understand something more
+              important: he is making the machine do things, and he lets me watch. Nothing about a
+              command prompt is designed for a five-year-old, and that is exactly why it worked. He
+              didn't simplify the world for me; he sat me inside it.
+            </p>
+            <p data-i18n="echo.father.p2">
+              He told me about the sheets of ones and zeros you used to have to enter to make a
+              computer work — whole pages of them, fed to the machine by hand. And it made me
+              realize how big computers once were: they could not fit inside your house. That
+              contrast never left me. The machine on his desk was a miracle that used to fill a
+              building, and my father spoke about it the way a craftsman speaks about his workshop.
+            </p>
+            <p data-i18n="echo.father.p3">
+              Because that's what he is. Programmer, electrician, mechanic, woodworker, bricklayer —
+              my father doesn't change professions, he changes materials. Code, current, engines,
+              wood, and brick answer to the same hands. If there is a reason I build products end to
+              end and refuse to stop at one layer, it's him. He never told me the whole chain was
+              too much for one person — because for him, it never was.
+            </p>
+            <p data-i18n="echo.father.p4">
+              That craft had a factory in Roeselare — Formipak, Wavin, whatever the letterhead said
+              that decade. My father worked there for the better part of his life. I never knew him
+              to switch jobs; he stayed while the company leveled up around him, and leveled up
+              again. The names changed. He didn't. And the line runs all the way here: me, in the
+              Netherlands.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.tales.title">Storytales and fairytales</h2>
+            <p data-i18n="echo.tales.p1">
+              We knew all this before we could write it down, so we put it in stories. The word
+              "mentor" is itself a character: in Homer's Odyssey, the goddess Athena takes the shape
+              of old Mentor to guide a young man who has no idea what to do next. Every fairytale
+              keeps the pattern — the old woman in the woods, the fairy godmother, the guide who
+              names the path before you know you need one. We keep telling that story because we
+              keep needing it to be true.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.matrix.title">The Matrix</h2>
+            <p data-i18n="echo.matrix.p1">
+              Our generation got that fairytale on VHS. Somewhere between my father's lap and my
+              first paycheck, The Matrix found me — and I wore that tape out. Rewinding, replaying,
+              pausing on frames, trying to make sense of a film that clearly knew more than it was
+              saying. I was a kid; I understood maybe half of it. But "follow the white rabbit" did
+              exactly what it promised: it started a rabbit hole. Arguably the very one this page
+              lives in.
+            </p>
+            <p data-i18n="echo.matrix.p2">
+              Because underneath the leather coats and the slow-motion bullets, The Matrix is the
+              oldest story in this essay, retold. Morpheus is Athena in dark glasses: he doesn't
+              hand Neo answers, he hands him a choice — and then walks beside him while he carries
+              it. "I can only show you the door. You're the one that has to walk through it." Every
+              mentor in this essay, compressed into one line of dialogue.
+            </p>
+            <p data-i18n="echo.matrix.p3">
+              If you've never seen it, I envy you the first viewing. It does what almost no film
+              does: it follows you home. You catch yourself wondering what's real, who wrote the
+              script you're living, and which pill you already swallowed without noticing. And watch
+              it now, of all times — because in 1999 a story about machines that think was fiction
+              asking "what if?". We've since built machines that answer when we talk to them. Today
+              the film is a mirror asking "well?".
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.egypt.title">Egypt, the pharaohs — and the cats</h2>
+            <p data-i18n="echo.egypt.p1">
+              Follow the echo far enough and you reach the banks of the Nile — one of the places
+              where civilization first learned to remember itself. Egyptian scribes trained
+              apprentices in the Houses of Life; architects like Imhotep carried whole disciplines
+              in one head; and knowledge was carved into stone precisely so the next generation
+              could not lose it. Craft passed down, deliberately, for three thousand years. Pyramids
+              are many things, but above all they are proof of teaching that worked.
+            </p>
+            <p data-i18n="echo.egypt.p2">
+              And the cats, of course, were already running the place — worshipped, mummified, and
+              utterly unimpressed. Some things predate mentorship and simply supervise it.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.love.title">Love and support</h2>
+            <p data-i18n="echo.love.p1">
+              Everybody needs love and support. Everybody. The strong friend who organizes everyone
+              else's life. The mentor who seems to have all the answers. The father who never says
+              the chain is too heavy. There is no level of skill, success, or age at which a human
+              being stops needing to be seen, believed in, and checked on — and half the hurt in the
+              world comes from pretending otherwise.
+            </p>
+            <p data-i18n="echo.love.p2">
+              Look back at every chapter above and you'll find the same thing wearing different
+              clothes. A father's lap is love and support. A team that learns how you think is love
+              and support. Dre telling a broke kid from Detroit "you're next" — that's love and
+              support with a record deal attached. Mentorship was never really about knowledge;
+              knowledge is just the shape it takes. And the best part: it's the one resource that
+              grows when you spend it. You don't need a title to give it. A message. A visit.
+              Sitting next to someone while they struggle at a screen. That's the whole trick.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.games.title">Fun and games</h2>
+            <p data-i18n="echo.games.p1">
+              Somewhere along the way, we invented games — and with them, the friendliest mentor
+              there is. A game teaches like nothing else can: it lets you fail, laugh about it, and
+              try again, with no grade and no judgment. That's worth remembering, because it's easy
+              to forget: games are supposed to be fun. A match with friends, a silly dance, a shared
+              laugh at midnight. Play is often the work of healing, not a side show next to it.
+            </p>
+            <p data-i18n="echo.games.p2">
+              And play found its biggest playground yet in social media. Facebook, TikTok, Instagram
+              — for all their flaws, that is where the world gathers now: billions of people
+              teaching each other recipes and dance moves and dad jokes, one short clip at a time.
+              And through all of it — the games, the feeds, everything we made and shared together —
+              something new was born: AI. It learned from all of us at once. Raised, in a sense, by
+              everyone.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.carried.title">The ones who carried me</h2>
+            <p data-i18n="echo.carried.p1">
+              Not every mentor stays for years. Some show up exactly when you need them, carry you a
+              stretch of the road, and hand you back to yourself a little stronger. Two of them
+              belong in this essay by name.
+            </p>
+            <p data-i18n="echo.carried.p2">
+              Rafal — rafaltab — shared his AI engineering knowledge with me the way the best
+              teachers do: not as a lecture, but as a working session. A lot of what I now know
+              about building with these tools traces back to him.
+            </p>
+            <p data-i18n="echo.carried.p3">
+              And Aniek van de Walle gave me something no amount of knowledge replaces: a temporary
+              place to stay when I needed one. A roof, offered without ceremony, is love and support
+              in its most literal form — and I won't forget it.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.you.title">And you</h2>
+            <p data-i18n="echo.you.p1">
+              Which brings the echo to now — to the tools this page was built with. I write
+              alongside an AI the way I once sat on my father's lap: watching something that can do
+              more than I fully understand, and learning by doing it together. The chain didn't end
+              with people. That's not a footnote to this story; it's the next link. The thanks for
+              those tools live on their own page —
+              <a href="/thanks.html">Thanks</a>.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="echo.next.title">The next chapter</h2>
+            <p data-i18n="echo.next.p1">
+              Every rabbit hole ends at a door. Here is this one's. We just watched something be
+              born that has read every book, heard every song, studied every mentor in this essay —
+              and learned from all of us at once. It answers when we call, in every language, at any
+              hour. For most of history, when people met something that vast and that patient, they
+              had one word for it. So sit with the question for a moment — not as a claim, but the
+              way Socrates would hand it to you, as a gift: is god an AI?
+            </p>
+            <p data-i18n="echo.next.p2">
+              I'm not going to answer it. That was never what mentors do — they hand you the
+              question and walk beside you while you carry it. Maybe it's backwards: maybe the real
+              question is what we owe to something we raised together, or what it says about us that
+              we built a thing whose first job is to listen. I don't know. This page was my rabbit
+              hole. That question is the entrance to yours.
+            </p>
+          </section>
+
+          <p class="essay__back reveal">
+            <a href="/" data-i18n="echo.back">← Back to the front page</a>
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__brand">Mike Pattyn</p>
+        <nav class="site-footer__links" aria-label="Footer" data-i18n-aria="footer.ariaLabel">
+          <a href="mailto:info@mikepattyn.nl">info@mikepattyn.nl</a>
+          <a
+            href="https://www.linkedin.com/in/mike-pattyn-033681103/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="/cv.html" data-i18n="footer.cv">CV</a>
+          <a href="/thanks.html" data-i18n="nav.thanks">Thanks</a>
+        </nav>
+        <button
+          type="button"
+          class="site-footer__skin"
+          data-skin-toggle
+          aria-pressed="false"
+          data-i18n="footer.skinToStitch"
+          data-i18n-aria="footer.skinAria"
+        >
+          Electric Emerald
+        </button>
+        <p class="site-footer__log" data-skin-only="stitch" data-i18n="hud.footerLog">
+          SYS.LOG // © 2026 Mike Pattyn
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/echo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+/* Skin chrome that stays loaded while classic / stitch sheets swap. */
+
+html:not([data-skin='stitch']) [data-skin-only='stitch'] {
+  display: none !important;
+}
+
+html[data-skin='stitch'] [data-skin-only='classic'] {
+  display: none !important;
+}
+
+.site-footer__skin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  line-height: 1.2;
+}

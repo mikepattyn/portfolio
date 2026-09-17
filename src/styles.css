@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #11110f;
+  --color-ink-2: #1c1c18;
+  --color-ink-3: #2a2a24;
+  --color-paper: #f4f0e6;
+  --color-paper-2: #e7e1d2;
+  --color-paper-3: #d8d1c0;
+  --color-moss: #3f5340;
+  --color-moss-2: #2f3f30;
+  --color-moss-fg: #f4f0e6;
+  --color-muted: #6e6a60;
+  --color-muted-2: #8a8578;
+  --color-line: color-mix(in oklab, var(--color-ink) 12%, transparent);
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 22%, transparent);
+  --color-line-on-ink: color-mix(in oklab, var(--color-paper) 14%, transparent);
+
+  --font-display: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+  --font-sans: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.1875rem;
+  --text-xl: clamp(1.375rem, 1.1rem + 0.8vw, 1.625rem);
+  --text-2xl: clamp(1.75rem, 1.2rem + 1.6vw, 2.375rem);
+  --text-3xl: clamp(2.25rem, 1.4rem + 3.2vw, 3.75rem);
+  --text-4xl: clamp(2.75rem, 1.5rem + 5vw, 5.25rem);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 28px;
+
+  --shadow-border: 0 0 0 1px rgba(17, 17, 15, 0.08), 0 1px 2px -1px rgba(17, 17, 15, 0.06),
+    0 8px 24px -16px rgba(17, 17, 15, 0.18);
+  --shadow-border-hover: 0 0 0 1px rgba(17, 17, 15, 0.12), 0 10px 28px -14px rgba(17, 17, 15, 0.22);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-quick: 150ms;
+  --motion-fast: 250ms;
+  --motion-slow: 400ms;
+}
+
+html[data-theme="dark"] {
+  --color-ink: #e2e4cf;
+  --color-ink-2: #cfd4b4;
+  --color-ink-3: #b8be9a;
+  --color-paper: #0d1008;
+  --color-paper-2: #15190c;
+  --color-paper-3: #1c2210;
+  --color-moss: #c8f25a;
+  --color-moss-2: #d6f87a;
+  --color-moss-fg: #111508;
+  --color-muted: #8e9379;
+  --color-muted-2: #a8ad90;
+  --color-line: color-mix(in oklab, var(--color-ink) 16%, transparent);
+  --color-line-strong: color-mix(in oklab, var(--color-ink) 28%, transparent);
+  --color-line-on-ink: color-mix(in oklab, var(--color-paper) 18%, transparent);
+  --shadow-border: 0 0 0 1px color-mix(in oklab, var(--color-ink) 14%, transparent),
+    0 8px 28px -16px color-mix(in oklab, #c8f25a 22%, transparent);
+  --shadow-border-hover: 0 0 0 1px color-mix(in oklab, var(--color-ink) 22%, transparent),
+    0 10px 32px -14px color-mix(in oklab, #c8f25a 28%, transparent);
+}
+
+html[data-theme="light"] {
+  --color-ink: #102018;
+  --color-ink-2: #1a2e22;
+  --color-ink-3: #2a3d32;
+  --color-paper: #f2f6f1;
+  --color-paper-2: #e4ece3;
+  --color-paper-3: #d5e0d4;
+  --color-moss: #1f4d3a;
+  --color-moss-2: #16382a;
+  --color-moss-fg: #f2f6f1;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    min-height: 100dvh;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-moss);
+    color: var(--color-moss-fg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  img.photo {
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+    outline-offset: -1px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono-meta {
+    font-family: var(--font-mono);
+    font-feature-settings: "ss01";
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

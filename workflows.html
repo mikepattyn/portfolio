@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en" data-skin="classic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A peek at how I run quality work across many apps: one planner, then one agent per app that still needs it — each in its own checkout."
+    />
+    <title>One orchestrator, many agents — Mike Pattyn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.skin.css" />
+    <link rel="stylesheet" href="/src/styles.classic.css" id="skin-classic" disabled />
+    <link rel="stylesheet" href="/src/styles.stitch.css" id="skin-stitch" disabled />
+    <script>
+      document.documentElement.classList.add('js');
+      try {
+        var stored = localStorage.getItem('locale');
+        var fromBrowser =
+          String(navigator.language || '')
+            .toLowerCase()
+            .indexOf('nl') === 0
+            ? 'nl'
+            : 'en';
+        document.documentElement.lang = stored === 'en' || stored === 'nl' ? stored : fromBrowser;
+        var classicSheet = document.getElementById('skin-classic');
+        var stitchSheet = document.getElementById('skin-stitch');
+        if (localStorage.getItem('skin') === 'stitch') {
+          document.documentElement.setAttribute('data-skin', 'stitch');
+          if (classicSheet) classicSheet.disabled = true;
+          if (stitchSheet) stitchSheet.disabled = false;
+        } else if (classicSheet) {
+          classicSheet.disabled = false;
+        }
+      } catch (e) {}
+    </script>
+  </head>
+  <body data-i18n-title="workflows.meta.title" data-i18n-description="workflows.meta.description">
+    <a class="skip-link" href="#workflows-title" data-i18n="skip.toContent">Skip to content</a>
+
+    <header class="site-nav">
+      <a
+        class="site-nav__brand"
+        href="/"
+        aria-label="Mike Pattyn home"
+        data-i18n-aria="nav.brandAria"
+      >
+        <img class="site-nav__photo" src="/images/mike-pattyn.png" alt="" width="36" height="36" />
+        <span class="site-nav__name">Mike Pattyn</span>
+      </a>
+      <div class="site-nav__right">
+        <button
+          type="button"
+          class="site-nav__toggle"
+          aria-expanded="false"
+          aria-controls="site-nav-menu"
+          aria-label="Open menu"
+          data-i18n-aria="nav.openMenu"
+        >
+          <span class="site-nav__toggle-bars" aria-hidden="true"></span>
+        </button>
+        <nav
+          id="site-nav-menu"
+          class="site-nav__links"
+          aria-label="Primary"
+          data-i18n-aria="nav.ariaPrimary"
+        >
+          <a href="/#approach" data-i18n="nav.approach">How I work</a>
+          <a href="/#work" data-i18n="nav.work">Work</a>
+          <a href="/underhood.html" data-i18n="nav.underHood">Under the hood</a>
+          <a href="/rabbithole.html" data-i18n="nav.mentors">The rabbit hole · essay</a>
+          <a href="/thanks.html" data-i18n="nav.thanks">Thanks</a>
+          <a href="/#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div
+          class="locale-toggle"
+          role="group"
+          aria-label="Language"
+          data-i18n-aria="locale.ariaLabel"
+        >
+          <button type="button" class="locale-toggle__btn" data-locale="en" aria-pressed="false">
+            EN
+          </button>
+          <button type="button" class="locale-toggle__btn" data-locale="nl" aria-pressed="false">
+            NL
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <p class="site-cursor-chip" data-skin-only="stitch" data-i18n="hero.builtWithCursor">
+      Built with Cursor
+    </p>
+
+    <main id="top">
+      <section class="hero hero--page" aria-labelledby="workflows-title">
+        <div class="hero__atmosphere" data-skin-only="classic" aria-hidden="true">
+          <div class="hero__orb hero__orb--a"></div>
+          <div class="hero__orb hero__orb--b"></div>
+          <div class="hero__grid"></div>
+          <div class="hero__noise"></div>
+        </div>
+        <div class="hero__layout">
+          <div class="hero__content">
+            <p class="hero__brand" data-skin-only="classic">Mike Pattyn</p>
+            <p class="section__eyebrow" data-skin-only="stitch" data-i18n="hud.workflows">
+              SYS.PROCESS.ORCHESTRATORS
+            </p>
+            <h1
+              class="hero__headline"
+              id="workflows-title"
+              tabindex="-1"
+              data-i18n="workflows.title"
+            >
+              One orchestrator, many agents
+            </h1>
+            <p class="hero__lede lede-hud" data-i18n="workflows.lede">
+              One repo holds a dozen apps. Doing them one after another in a single chat is slow,
+              and the context gets huge. I do something else.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#waves" data-i18n="workflows.ctaWaves"
+                >The four waves</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="/underhood.html#agent-skills"
+                data-i18n="workflows.ctaShelf"
+                >Skill shelf</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <article class="essay" id="workflow">
+        <div class="essay__body">
+          <p class="essay__opening lede-hud reveal" data-i18n="workflows.opening">
+            You already know the everyday version. Open a chat, ask the agent to format every
+            frontend, and watch it walk the trees one by one. Halfway through, the conversation is
+            full of file lists and the agent starts forgetting the first app. That is the situation
+            this page is about.
+          </p>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="workflows.picture.title">The picture, then the name</h2>
+            <p data-i18n="workflows.picture.p1">
+              An orchestrator skill does not format or lint a tree itself. It plans: it lists the
+              trees, diffs each one since its last recorded run, and keeps only the dirty ones. Then
+              it spins up one child agent per dirty tree. Each child works in its own git worktree —
+              a second checkout of the same repo, on its own branch — so ten agents can edit ten
+              apps at once without writing over each other.
+            </p>
+            <p data-i18n="workflows.picture.p2">
+              The children inherit the LLM you invoked the orchestrator with. You pick the model
+              once. The whole fleet runs on it. When a child finishes, the parent merges that branch
+              back, closes the worktree so leftover folders do not pile up, and records that the
+              tree was done.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal" id="waves">
+            <h2 data-i18n="workflows.waves.title">Four waves, never mixed</h2>
+            <p data-i18n="workflows.waves.p1">
+              The <code>/platform-quality</code> umbrella is the worked example. It does not launch
+              every skill at once. It runs four waves, one after another, and re-plans after each
+              merge so the next wave sees the new tip. Lint and format never share a wave, because
+              they would fight over the same files. Scripts convert to Node before lint and format,
+              so the new <code>.mjs</code> files get both.
+            </p>
+
+            <figure class="key-example">
+              <table class="key-example__table">
+                <caption data-i18n="workflows.waves.caption">
+                  The four waves inside /platform-quality
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col" data-i18n="workflows.waves.colWave">Wave</th>
+                    <th scope="col" data-i18n="workflows.waves.colRuns">What runs</th>
+                    <th scope="col" data-i18n="workflows.waves.colWhy">Why this order</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" data-i18n="workflows.waves.w0.name">0</th>
+                    <td data-i18n="workflows.waves.w0.runs">
+                      <code>frontend-page-accessibility</code>
+                    </td>
+                    <td data-i18n="workflows.waves.w0.why">
+                      Accessibility first, while the markup is still the markup you wrote.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-i18n="workflows.waves.w1.name">1</th>
+                    <td data-i18n="workflows.waves.w1.runs"><code>scripts-to-node</code></td>
+                    <td data-i18n="workflows.waves.w1.why">
+                      Convert native shells to Node so later waves can lint and format the new
+                      files.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-i18n="workflows.waves.w2.name">2</th>
+                    <td data-i18n="workflows.waves.w2.runs">
+                      <code>frontend-lint</code>, <code>backend-lint</code>,
+                      <code>platform-lint</code>
+                    </td>
+                    <td data-i18n="workflows.waves.w2.why">
+                      Lint after convert, and never in the same launch as format.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row" data-i18n="workflows.waves.w3.name">3</th>
+                    <td data-i18n="workflows.waves.w3.runs">
+                      <code>frontend-format</code>, <code>backend-format</code>,
+                      <code>platform-format</code>
+                    </td>
+                    <td data-i18n="workflows.waves.w3.why">
+                      Format last, so lint is not rewriting what format just cleaned.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="workflows.see.title">How to see it</h2>
+            <p data-i18n="workflows.see.p1">
+              In another repo, look for a plan that skips clean trees, one child per dirty tree, and
+              a close step after merge. Leftover checkouts are part of the job.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="workflows.try.title">If you ever build this</h2>
+            <p data-i18n="workflows.try.p1">
+              Start with two folders, not a dozen. The large version is the same idea with a longer
+              list.
+            </p>
+          </section>
+
+          <section class="essay__chapter reveal">
+            <h2 data-i18n="workflows.catch.title">The honest catch</h2>
+            <p data-i18n="workflows.catch.p1">
+              Shared files race. If every child adds a formatter to the same
+              <code>package.json</code>, you get merge conflicts instead of parallel work. Land
+              shared tooling in the parent checkout first, then fan out. And worktrees left open
+              pile up on disk. Closing them is part of the workflow, the same as merging. Skip that
+              step and you are back to cleaning folders by hand.
+            </p>
+          </section>
+
+          <p class="underhood-topic__used reveal" data-i18n="workflows.usedBy">
+            The orchestrators live in <code>.cursor/skills/</code>:
+            <code>frontend-page-accessibility</code>, the format and lint skills for frontends,
+            backends, and platform remainder, <code>scripts-to-node</code>, and the
+            <code>platform-quality</code> umbrella that sequences them.
+          </p>
+          <p class="underhood-topic__source reveal" data-i18n="workflows.source">
+            Primary source:
+            <a
+              href="https://git-scm.com/docs/git-worktree"
+              target="_blank"
+              rel="noopener noreferrer"
+              >git worktree</a
+            >
+            — a second working directory on a second branch of the same repo. Child agents inherit
+            the parent model by default; see
+            <a href="https://cursor.com/docs/subagents" target="_blank" rel="noopener noreferrer"
+              >Cursor subagents</a
+            >.
+          </p>
+
+          <p class="essay__back reveal">
+            <a href="/underhood.html#agent-skills" data-i18n="workflows.back"
+              >← Back to the skill shelf</a
+            >
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="site-footer__brand">Mike Pattyn</p>
+        <nav class="site-footer__links" aria-label="Footer" data-i18n-aria="footer.ariaLabel">
+          <a href="mailto:info@mikepattyn.nl">info@mikepattyn.nl</a>
+          <a
+            href="https://www.linkedin.com/in/mike-pattyn-033681103/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="/cv.html" data-i18n="footer.cv">CV</a>
+          <a href="/thanks.html" data-i18n="nav.thanks">Thanks</a>
+        </nav>
+        <button
+          type="button"
+          class="site-footer__skin"
+          data-skin-toggle
+          aria-pressed="false"
+          data-i18n="footer.skinToStitch"
+          data-i18n-aria="footer.skinAria"
+        >
+          Electric Emerald
+        </button>
+        <p class="site-footer__log" data-skin-only="stitch" data-i18n="hud.footerLog">
+          SYS.LOG // © 2026 Mike Pattyn
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/workflows.js"></script>
+  </body>
+</html>
