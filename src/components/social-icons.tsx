@@ -17,3 +17,15 @@ export function GitHubIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function AlienIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 1.8C6.7 1.8 2.4 6.5 2.4 12.2c0 4.1 2.5 7.6 6.1 9.1.5.2.9.7.9 1.2v1.1h7.2v-1.1c0-.5.4-1 .9-1.2 3.6-1.5 6.1-5 6.1-9.1C21.6 6.5 17.3 1.8 12 1.8ZM8.1 9.4c-.2 1.7-1.3 2.6-2.3 1.7-1.1-1-.9-3.6.4-5.2 1.7.9 2.1 2.3 1.9 3.5Zm9.1 1.7c-1 .9-2.1 0-2.3-1.7-.2-1.2.2-2.6 1.9-3.5 1.3 1.6 1.5 4.2.4 5.2Z"
+      />
+    </svg>
+  );
+}
+

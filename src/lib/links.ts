@@ -4,6 +4,7 @@ export const links = {
   email: "mailto:info@mikepattyn.nl",
   linkedin: "https://www.linkedin.com/in/mike-pattyn-033681103/",
   github: "https://github.com/mikepattyn",
+  alien: "https://alienbutnice.nl/",
   framer: "https://mikepattyn.framer.website/",
 } as const;
 

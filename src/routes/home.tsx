@@ -7,7 +7,7 @@ import { useTheme } from "@/lib/theme";
 import { CONTACT_ENDPOINT, TURNSTILE_SITE_KEY, loadTurnstileScript } from "@/lib/turnstile";
 import { featuredWork, secondaryWork } from "@/lib/work";
 import { cvPdfFilename, cvPdfUrl, links } from "@/lib/links";
-import { GitHubIcon, LinkedInIcon } from "@/components/social-icons";
+import { AlienIcon, GitHubIcon, LinkedInIcon } from "@/components/social-icons";
 import type { Copy } from "@/lib/i18n";
 
 export function Home() {
@@ -465,6 +465,15 @@ function Contact({ t }: { t: Copy }) {
               className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
             >
               <GitHubIcon className="size-4" />
+            </a>
+            <a
+              href={links.alien}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Alien But Nice"
+              className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
+            >
+              <AlienIcon className="size-4" />
             </a>
             <a
               href={cvPdfUrl(locale)}

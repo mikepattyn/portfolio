@@ -4,7 +4,7 @@ import { Framer } from "lucide-react";
 import { useLocale } from "@/lib/locale";
 import { useTheme, type Theme } from "@/lib/theme";
 import { cvPdfFilename, cvPdfUrl, links } from "@/lib/links";
-import { GitHubIcon, LinkedInIcon } from "@/components/social-icons";
+import { AlienIcon, GitHubIcon, LinkedInIcon } from "@/components/social-icons";
 import { cn } from "@/lib/cn";
 
 const nav = [
@@ -184,6 +184,9 @@ export function SiteFooter() {
             </IconLink>
             <IconLink href={links.github} label="GitHub">
               <GitHubIcon className="size-4" />
+            </IconLink>
+            <IconLink href={links.alien} label="Alien But Nice">
+              <AlienIcon className="size-4" />
             </IconLink>
           </div>
         </div>
