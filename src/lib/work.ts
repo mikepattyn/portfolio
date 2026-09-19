@@ -1,5 +1,13 @@
 export const featuredWork = [
   {
+    id: "learn" as const,
+    name: "Learn",
+    href: "https://learn.mikepattyn.nl",
+    host: "learn.mikepattyn.nl",
+    image: "/images/work/learn.jpg",
+    stack: ["Angular", "AWS CDK", "ADHD-safe classroom"],
+  },
+  {
     id: "flyingdarts" as const,
     name: "Flyingdarts",
     href: "https://flyingdarts.mikepattyn.nl",

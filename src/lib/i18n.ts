@@ -60,6 +60,8 @@ export const copy = {
       lede: "Running products, each designed, built, and operated by one person — from the first sketch to the server bill.",
       live: "Live",
       visit: "Open product",
+      learn:
+        "Small AWS lessons, one step on screen. Written to be safe for ADHD brains: no streaks, no quizzes, nothing that expires. A public classroom that teaches the same path I use — scaffold an umbrella, send mail, then wire a Lambda.",
       flyingdarts:
         "Real-time multiplayer darts with live video and a mobile companion that scores by voice. The hard part isn't the game — it's keeping many players in sync, live, on infrastructure that costs nearly nothing when idle.",
       barbershop:
@@ -232,6 +234,8 @@ export const copy = {
       lede: "Draaiende producten, elk ontworpen, gebouwd en beheerd door één persoon — van de eerste schets tot de serverrekening.",
       live: "Live",
       visit: "Open product",
+      learn:
+        "Kleine AWS-lessen, één stap op het scherm. Geschreven om veilig te zijn voor ADHD-breinen: geen streaks, geen quizzen, niets dat verloopt. Een openbare klas die het pad leert dat ik zelf gebruik — scaffold een umbrella, verstuur mail, en wire daarna een Lambda.",
       flyingdarts:
         "Realtime multiplayer darts met live video en een mobiele companion die scoort op stem. Het moeilijke is niet het spel — het is veel spelers live synchroon houden, op infrastructuur die vrijwel niets kost als die stilstaat.",
       barbershop:
