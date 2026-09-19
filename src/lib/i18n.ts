@@ -128,6 +128,9 @@ export const copy = {
       framer: "Open CV on Framer",
     },
     cv: {
+      metaTitle: "CV — Mike Pattyn",
+      metaDescription:
+        "Products I shipped, teams I built with, and how I got here — the same whole chain as the rest of this site.",
       title: "CV",
       lede: "The same chain as the rest of this site: products I shipped, teams I built with, and how I got here.",
       experience: "Experience",
@@ -153,6 +156,9 @@ export const copy = {
       languages: "Dutch, English, French",
     },
     hood: {
+      metaTitle: "Under the hood — Mike Pattyn",
+      metaDescription:
+        "A look at how I think: how the products store data, how I direct the coding agent, and how shared libraries ship.",
       title: "A look at how I think",
       lede: "This page is for the technical reader. Three looks inside: how the products store data, how I direct the coding agent, and how shared libraries ship.",
       back: "Back to the front page",
@@ -180,7 +186,7 @@ export const copy = {
   },
   nl: {
     meta: {
-      title: "Mike Pattyn",
+      title: "Mike Pattyn — van idee tot draaiend product",
       description:
         "Van idee tot draaiend product. Eén engineer, de hele keten. Ik bouw en lanceer complete producten — interface, backend, cloud, en de AI-features waar ze hun plek verdienen.",
     },
@@ -302,6 +308,9 @@ export const copy = {
       framer: "Open CV op Framer",
     },
     cv: {
+      metaTitle: "CV van Mike Pattyn",
+      metaDescription:
+        "Producten die ik opleverde, teams waarmee ik bouwde, en hoe ik hier kwam — dezelfde hele keten als de rest van deze site.",
       title: "CV",
       lede: "Dezelfde keten als de rest van deze site: producten die ik opleverde, teams waarmee ik bouwde, en hoe ik hier kwam.",
       experience: "Ervaring",
@@ -327,6 +336,9 @@ export const copy = {
       languages: "Nederlands, Engels, Frans",
     },
     hood: {
+      metaTitle: "Onder de motorkap — Mike Pattyn",
+      metaDescription:
+        "Een kijkje in hoe ik denk: hoe de producten data opslaan, hoe ik de coding-agent stuur, en hoe gedeelde bibliotheken shippen.",
       title: "Een kijkje in hoe ik denk",
       lede: "Deze pagina is voor de technische lezer. Drie blikken naar binnen: hoe de producten data opslaan, hoe ik de coding-agent stuur, en hoe gedeelde bibliotheken shippen.",
       back: "Terug naar de voorpagina",

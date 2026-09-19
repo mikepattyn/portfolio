@@ -1,0 +1,34 @@
+{
+  "canonicalHost": "https://mikepattyn.nl",
+  "locales": ["nl", "en"],
+  "outputDir": "dist",
+  "unknownPath": "/this-path-should-not-exist-seo-audit",
+  "alternateHosts": ["https://www.mikepattyn.nl"],
+  "pages": [
+    { "path": "/en/", "type": "home" },
+    { "path": "/nl/", "type": "home" },
+    { "path": "/en/cv", "type": "article" },
+    { "path": "/nl/cv", "type": "article" },
+    { "path": "/en/thanks", "type": "article" },
+    { "path": "/nl/thanks", "type": "article" },
+    { "path": "/en/underhood", "type": "article" },
+    { "path": "/nl/underhood", "type": "article" },
+    { "path": "/en/workflows", "type": "article" },
+    { "path": "/nl/workflows", "type": "article" },
+    {
+      "path": "/",
+      "type": "excluded",
+      "reason": "language selector; x-default cluster lives on the /en/ URLs"
+    },
+    {
+      "path": "/en/rabbithole",
+      "type": "excluded",
+      "reason": "incomplete this seo-by-design run; locale URL exists, signals deferred"
+    },
+    {
+      "path": "/nl/rabbithole",
+      "type": "excluded",
+      "reason": "incomplete this seo-by-design run; locale URL exists, signals deferred"
+    }
+  ]
+}

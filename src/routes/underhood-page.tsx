@@ -1,9 +1,9 @@
-import { Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/site-chrome";
 import { useLocale } from "@/lib/locale";
+import { pagePath } from "@/lib/paths.js";
 
 export function UnderhoodPage() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   return (
     <PageShell>
       <main className="mx-auto max-w-[760px] px-5 py-16 sm:px-8 sm:py-24">
@@ -38,9 +38,9 @@ export function UnderhoodPage() {
         </article>
 
         <p className="mt-16">
-          <Link to="/" className="text-sm underline decoration-line-strong underline-offset-4">
+          <a href={pagePath(locale, "home")} className="text-sm underline decoration-line-strong underline-offset-4">
             {t.hood.back}
-          </Link>
+          </a>
         </p>
       </main>
     </PageShell>

@@ -1,41 +1,23 @@
 /**
- * EN/NL locale for the portfolio — policy matches Kapsalon LocaleService
- * (and the Lumen retrofit): stored `locale` wins, else navigator.language,
- * NL only when it starts with "nl", persisted on switch.
+ * EN/NL locale for the vanilla pages. The URL prefix is the source of
+ * truth (`/en/…`, `/nl/…`). localStorage is not used for language.
  */
 import { en } from './i18n/en.js';
 import { nl } from './i18n/nl.js';
+import { localeFromPath, swapLocalePath } from './lib/paths.js';
+import { getByPath, rewriteLocaleHrefs } from './lib/seo-html.js';
 
 const I18N = { en, nl };
-const STORAGE_KEY = 'locale';
 
-function readStored() {
+function pathname() {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored === 'en' || stored === 'nl' ? stored : null;
+    return globalThis.location?.pathname || '/en/';
   } catch {
-    return null;
+    return '/en/';
   }
 }
 
-function persist(locale) {
-  try {
-    localStorage.setItem(STORAGE_KEY, locale);
-  } catch {
-    /* ignore */
-  }
-}
-
-function resolveInitial() {
-  // Keep in sync with the inline lang boot in the HTML pages.
-  return readStored() ?? (navigator.language.toLowerCase().startsWith('nl') ? 'nl' : 'en');
-}
-
-function getByPath(obj, path) {
-  return path.split('.').reduce((acc, key) => (acc == null ? undefined : acc[key]), obj);
-}
-
-let active = resolveInitial();
+let active = localeFromPath(pathname()) ?? 'en';
 
 export function t(key) {
   const value = getByPath(I18N[active], key);
@@ -48,16 +30,18 @@ export function getLocale() {
 
 function apply() {
   document.documentElement.lang = active;
-  // Pages other than the homepage point at their own meta keys via data attrs.
-  document.title = t(document.body.dataset.i18nTitle || 'meta.title');
+  document.title = rewriteLocaleHrefs(t(document.body.dataset.i18nTitle || 'meta.title'), active);
 
   const meta = document.querySelector('meta[name="description"]');
-  if (meta)
-    meta.setAttribute('content', t(document.body.dataset.i18nDescription || 'meta.description'));
+  if (meta) {
+    meta.setAttribute(
+      'content',
+      rewriteLocaleHrefs(t(document.body.dataset.i18nDescription || 'meta.description'), active),
+    );
+  }
 
-  // Dictionary strings are our own content; some contain markup (<br>, links).
   document.querySelectorAll('[data-i18n]').forEach((el) => {
-    el.innerHTML = t(el.getAttribute('data-i18n'));
+    el.innerHTML = rewriteLocaleHrefs(t(el.getAttribute('data-i18n')), active);
   });
 
   document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
@@ -69,14 +53,21 @@ function apply() {
     btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     btn.classList.toggle('is-active', isActive);
   });
+  document.querySelectorAll('.locale-toggle a[hreflang]').forEach((link) => {
+    const isActive = link.getAttribute('hreflang') === active;
+    link.classList.toggle('is-active', isActive);
+    if (isActive) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  });
 }
 
 export function setLocale(locale) {
   if (locale !== 'en' && locale !== 'nl') return;
   if (locale === active) return;
-  active = locale;
-  persist(locale);
-  apply();
+  const next = swapLocalePath(pathname(), locale);
+  if (typeof globalThis.location?.assign === 'function') {
+    globalThis.location.assign(`${next}${globalThis.location.search || ''}${globalThis.location.hash || ''}`);
+  }
 }
 
 export function initLocale() {

@@ -1,6 +1,6 @@
 export const nl = {
   meta: {
-    title: 'Mike Pattyn',
+    title: 'Mike Pattyn — van idee tot draaiend product',
     description:
       'Van idee tot draaiend product. Eén engineer, de hele keten. Ik bouw en lanceer complete producten — interface, backend, cloud, en de AI-features waar ze hun plek verdienen.',
   },
@@ -455,7 +455,7 @@ export const nl = {
   },
   cv: {
     meta: {
-      title: 'CV — Mike Pattyn',
+      title: 'CV van Mike Pattyn',
       description:
         'Producten die ik opleverde, teams waarmee ik bouwde, en hoe ik hier kwam — dezelfde hele keten als de rest van deze site.',
     },

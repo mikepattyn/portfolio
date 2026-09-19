@@ -28,14 +28,9 @@
     <script>
       document.documentElement.classList.add('js');
       try {
-        var stored = localStorage.getItem('locale');
-        var fromBrowser =
-          String(navigator.language || '')
-            .toLowerCase()
-            .indexOf('nl') === 0
-            ? 'nl'
-            : 'en';
-        document.documentElement.lang = stored === 'en' || stored === 'nl' ? stored : fromBrowser;
+        var pathLocale = (location.pathname.match(/^\/(en|nl)(?=\/|$)/) || [])[1];
+        document.documentElement.lang =
+          pathLocale === 'en' || pathLocale === 'nl' ? pathLocale : 'en';
         var classicSheet = document.getElementById('skin-classic');
         var stitchSheet = document.getElementById('skin-stitch');
         if (localStorage.getItem('skin') === 'stitch') {

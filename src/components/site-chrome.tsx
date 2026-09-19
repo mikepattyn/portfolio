@@ -1,30 +1,37 @@
 import { useState, type ReactNode } from "react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import { useRouterState } from "@tanstack/react-router";
 import { Framer } from "lucide-react";
 import { useLocale } from "@/lib/locale";
 import { useTheme, type Theme } from "@/lib/theme";
 import { cvPdfFilename, cvPdfUrl, links } from "@/lib/links";
 import { AlienIcon, GitHubIcon, LinkedInIcon } from "@/components/social-icons";
 import { cn } from "@/lib/cn";
+import { pageFromPath, pagePath } from "@/lib/paths.js";
+import type { Locale } from "@/lib/i18n";
 
-const nav = [
-  { href: "/#approach", hash: true, key: "approach" as const },
-  { href: "/#work", hash: true, key: "work" as const },
-  { href: "/underhood.html", hash: false, key: "underHood" as const },
-  { href: "/#contact", hash: true, key: "contact" as const },
-];
+function navItems(locale: Locale) {
+  const home = pagePath(locale, "home");
+  return [
+    { href: `${home}#approach`, hash: true, key: "approach" as const },
+    { href: `${home}#work`, hash: true, key: "work" as const },
+    { href: pagePath(locale, "underhood"), hash: false, key: "underHood" as const },
+    { href: `${home}#contact`, hash: true, key: "contact" as const },
+  ];
+}
 
 export function SiteHeader() {
-  const { t, locale, setLocale } = useLocale();
+  const { t, locale } = useLocale();
   const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const page = pageFromPath(pathname) ?? "home";
+  const nav = navItems(locale);
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between gap-4 px-5 sm:px-8">
-        <Link
-          to="/"
+        <a
+          href={pagePath(locale, "home")}
           aria-label={t.nav.brand}
           className="flex items-center gap-3 text-ink no-underline"
         >
@@ -36,7 +43,7 @@ export function SiteHeader() {
             className="photo size-9 rounded-full object-cover object-center"
           />
           <span className="text-sm font-semibold tracking-tight">Mike Pattyn</span>
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label={t.nav.primary}>
           {nav.map((item) => (
@@ -45,7 +52,7 @@ export function SiteHeader() {
               href={item.href}
               className={cn(
                 "text-[0.8125rem] text-muted transition-colors duration-150 hover:text-ink",
-                !item.hash && pathname === item.href && "text-ink",
+                !item.hash && pathname.replace(/\/$/, "") === item.href && "text-ink",
               )}
             >
               {t.nav[item.key]}
@@ -80,18 +87,19 @@ export function SiteHeader() {
             aria-label={t.locale}
           >
             {(["en", "nl"] as const).map((code) => (
-              <button
+              <a
                 key={code}
-                type="button"
-                aria-pressed={locale === code}
-                onClick={() => setLocale(code)}
+                href={pagePath(code, page)}
+                hrefLang={code}
+                lang={code}
+                aria-current={locale === code ? "true" : undefined}
                 className={cn(
-                  "h-8 min-w-10 rounded-full px-2.5 text-xs font-medium uppercase transition-colors duration-150",
+                  "inline-flex h-8 min-w-10 items-center justify-center rounded-full px-2.5 text-xs font-medium uppercase no-underline transition-colors duration-150",
                   locale === code ? "bg-ink text-paper" : "text-muted hover:text-ink",
                 )}
               >
                 {code}
-              </button>
+              </a>
             ))}
           </div>
           <button
@@ -197,9 +205,9 @@ export function SiteFooter() {
           <a href={cvPdfUrl(locale)} download={cvPdfFilename(locale)} className="hover:text-paper">
             {t.footer.cv}
           </a>
-          <Link to="/underhood.html" className="hover:text-paper">
+          <a href={pagePath(locale, "underhood")} className="hover:text-paper">
             {t.footer.underHood}
-          </Link>
+          </a>
         </nav>
       </div>
     </footer>

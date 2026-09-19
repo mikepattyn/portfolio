@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/seo-prerender.mjs",
     "preview": "vite preview",
-    "test": "node --test src/a11y.test.js src/shader.test.js src/skin.test.js src/toolkit.test.js src/contact.v03.test.js",
+    "test": "node --test src/a11y.test.js src/shader.test.js src/skin.test.js src/toolkit.test.js src/contact.v03.test.js src/lib/paths.test.js src/lib/seo-html.test.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

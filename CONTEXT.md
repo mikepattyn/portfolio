@@ -9,7 +9,7 @@ This Vite static site under `apps/portfolio`, a public Application gitlink ([mik
 _Avoid_: treating the path as an owned umbrella tree; nesting Email or Contact.Api inside this remote; adding GitHub chrome on the public site
 
 **CV**:
-First-party curriculum vitae at `/cv.html` (Vite multi-page entry next to `thanks.html`). Linked from contact alt and **SiteFooter**, not the hero and not the primary nav. Copy under `cv.*` in `src/i18n/{en,nl}.js`.
+First-party curriculum vitae at `/en/cv` and `/nl/cv` (Vite multi-page entry next to thanks). Linked from contact alt and **SiteFooter**, not the hero and not the primary nav. Copy under `cv.*` in `src/i18n/{en,nl}.js` and `src/lib/i18n.ts`.
 _Avoid_: hosting the CV on Framer; putting the CV in the primary nav or the hero; GitHub links; date of birth
 
 **ContactApi**:
@@ -33,15 +33,15 @@ Shared footer on every Portfolio page (home, **UnderTheHoodPage**, rabbit hole, 
 _Avoid_: GitHub links; SETTL. / Financieel Fit thanks; Cursor / Fork / Grok Bot credits; a platform sentence; putting that thanks back in **TeamsSection**; putting the skin switch in the nav or on a query param
 
 **ThanksPage**:
-Standalone page at `/thanks.html` (Vite multi-page entry next to `rabbithole.html` and `workflows.html`). Two sections: **This house** (SETTL. / Financieel Fit story and logos) and **These tools** (Cursor, Fork, Grok Bot). Linked from the primary nav (Thanks / Dank, before Contact) and **SiteFooter**. Copy under `thanks.*` in `src/i18n/{en,nl}.js`.
+Standalone page at `/en/thanks` and `/nl/thanks` (Vite multi-page entry next to rabbithole and workflows). Two sections: **This house** (SETTL. / Financieel Fit story and logos) and **These tools** (Cursor, Fork, Grok Bot). Linked from the primary nav (Thanks / Dank, before Contact) and **SiteFooter**. Copy under `thanks.*` in `src/i18n/{en,nl}.js`.
 _Avoid_: treating it as an **UnderTheHoodTopic**; treating it as the rabbit-hole mentorship thank-you; putting the house story or tool credits back in **SiteFooter** or **TeamsSection**
 
 **UnderTheHoodPage**:
-Standalone teaching page at `/underhood.html` (Vite multi-page entry next to `rabbithole.html`). Linked from the primary nav (Under the hood, after Work). Home `#under-the-hood`, `#single-table`, `#agent-skills`, and `#publish-here` hashes redirect here. Copy under `underhood.*` in `src/i18n/{en,nl}.js`.
+Standalone teaching page at `/en/underhood` and `/nl/underhood` (Vite multi-page entry next to rabbithole). Linked from the primary nav (Under the hood, after Work). Home `#under-the-hood`, `#single-table`, `#agent-skills`, and `#publish-here` hashes redirect here. Copy under `underhood.*` in `src/i18n/{en,nl}.js` and `src/lib/i18n.ts`.
 _Avoid_: putting the articles back on the home page; duplicating the full explanation inline in each app card
 
 **UnderTheHoodTopic**:
-One teaching article inside **UnderTheHoodPage**. Current topics: `#single-table` (DynamoDB single-table design), `#agent-skills` (why the Agent Skill shelf is a deliberate pick), and `#publish-here` (Package gitlinks keep their remotes; the umbrella is the release console). Stack chips on Barbershop, Gofish, and Lumen link to `/underhood.html#single-table` via `.app-item__stack-link`. The work open-source note links to `/underhood.html#publish-here`. New public topics from a workshop chat are added with **UmbrellaTeach**.
+One teaching article inside **UnderTheHoodPage**. Current topics: `#single-table` (DynamoDB single-table design), `#agent-skills` (why the Agent Skill shelf is a deliberate pick), and `#publish-here` (Package gitlinks keep their remotes; the umbrella is the release console). Stack chips on Barbershop, Gofish, and Lumen link to `/en/underhood#single-table` via `.app-item__stack-link`. The work open-source note links to `/en/underhood#publish-here` (and `/nl/…`). New public topics from a workshop chat are added with **UmbrellaTeach**.
 _Avoid_: treating the page heading as if it were still only the DynamoDB topic
 
 **UmbrellaTeach**:
@@ -49,7 +49,7 @@ The `umbrella-teach` skill: one summarized workshop chat becomes one public **Un
 _Avoid_: MISSION.md / lessons HTML; dumping a chat transcript; revise-and-resonate punch copy; putting transcript ids on the site
 
 **WorkflowsPage**:
-Standalone teaching page at `/workflows.html` (Vite multi-page entry next to `rabbithole.html`). It explains the quality orchestrators: one parent skill plans per tree, then launches one worktree agent per dirty app, all on the model the user invoked. Linked from the **Quality orchestrators** group on `/underhood.html#agent-skills` (a Workflows link, not a skill-name grid). Copy under `workflows.*` in `src/i18n/{en,nl}.js`.
+Standalone teaching page at `/en/workflows` and `/nl/workflows` (Vite multi-page entry next to rabbithole). It explains the quality orchestrators: one parent skill plans per tree, then launches one worktree agent per dirty app, all on the model the user invoked. Linked from the **Quality orchestrators** group on `/en/underhood#agent-skills` (a Workflows link, not a skill-name grid). Copy under `workflows.*` in `src/i18n/{en,nl}.js`.
 _Avoid_: treating it as an **UnderTheHoodTopic**; adding it to the primary nav; putting chat ids or last-run internals on the page
 
 **ElectricEmerald**:
@@ -57,7 +57,7 @@ Opt-in stitch look for the Portfolio (not the first-visit default): pitch-black 
 _Avoid_: Tailwind CDN; making stitch the first-visit default; a nav or URL skin control; GitHub in the footer; hotlinked stitch images
 
 **AgentSkill**:
-A versioned instruction pack (`SKILL.md` plus optional scripts/references) the coding agent loads when the work matches. The platform shelf lives at repo-root `.cursor/skills/`; the public teach is `/underhood.html#agent-skills`.
+A versioned instruction pack (`SKILL.md` plus optional scripts/references) the coding agent loads when the work matches. The platform shelf lives at repo-root `.cursor/skills/`; the public teach is `/en/underhood#agent-skills`.
 _Avoid_: calling them rules, slash commands, or prompts; treating a popular public catalog as the default shelf; using the private `teach` workspace when the job is **UmbrellaTeach**
 
 ## Boundaries
@@ -72,7 +72,7 @@ Vite · plain HTML/CSS/JS · Google Fonts (Newsreader, Bricolage Grotesque, JetB
 
 ## Contact
 
-General contact copy points to `info@mikepattyn.nl` (footer + contact section), plus LinkedIn and the **CV**. The public site does not link to GitHub in the footer, nav, or contact copy. The footer and primary nav also link to **ThanksPage**. The `/underhood.html#publish-here` table may link the Package gitlink remotes (`authress-angular`, `authress-flutter`) plus their npm / pub.dev package pages.
+General contact copy points to `info@mikepattyn.nl` (footer + contact section), plus LinkedIn and the **CV**. The public site does not link to GitHub in the footer, nav, or contact copy. The footer and primary nav also link to **ThanksPage**. The `/en/underhood#publish-here` table may link the Package gitlink remotes (`authress-angular`, `authress-flutter`) plus their npm / pub.dev package pages.
 
 The contact form posts JSON to **`POST /api/contact`** on the same origin. The Lambda sends via Zoho SMTP from `info@mikepattyn.nl` to `info@mikepattyn.nl` with the visitor's address as `Reply-To`.
 
@@ -80,8 +80,34 @@ Spam protection: honeypot field (`_honey`), Cloudflare Turnstile (site key in `i
 
 ## Locale
 
-EN/NL, same policy as Kapsalon `LocaleService` and the Lumen retrofit: stored
-`localStorage.locale` wins, else `navigator.language` starting with `nl` → NL,
-else EN. Header toggle persists the choice. Copy lives in `src/i18n/en.js` /
-`src/i18n/nl.js`; static markup is keyed with `data-i18n` / `data-i18n-aria`
-and translated by `src/locale.js`.
+EN/NL, locale-prefixed paths (`/en/…`, `/nl/…`). The prefix is the
+source of truth — not `localStorage` and not `navigator.language`.
+The language control is a link to the other locale of the same page.
+Copy lives in `src/i18n/{en,nl}.js` (vanilla pages) and `src/lib/i18n.ts`
+(React pages). `src/locale.js` still paints `data-i18n` keys after load;
+the built HTML already contains the right language.
+
+## Search
+
+Canonical host: `https://mikepattyn.nl`. `www` → apex is a 301 on the
+platform hosting stack (pending deploy of that wave). Preview
+`dev.mikepattyn.nl` is a different host and stays out of this sitemap.
+
+| URL | Type | State | Notes |
+|-----|------|-------|-------|
+| `https://mikepattyn.nl/en/` | home | indexable | EN home; Organization JSON-LD; reciprocal hreflang with `/nl/` |
+| `https://mikepattyn.nl/nl/` | home | indexable | NL home; in-language self-canonical |
+| `https://mikepattyn.nl/en/cv` | article | indexable | CV |
+| `https://mikepattyn.nl/nl/cv` | article | indexable | CV |
+| `https://mikepattyn.nl/en/thanks` | article | indexable | Thanks |
+| `https://mikepattyn.nl/nl/thanks` | article | indexable | Thanks |
+| `https://mikepattyn.nl/en/underhood` | article | indexable | Under the hood; Article JSON-LD |
+| `https://mikepattyn.nl/nl/underhood` | article | indexable | Onder de motorkap |
+| `https://mikepattyn.nl/en/workflows` | article | indexable | Quality orchestrators; Article JSON-LD |
+| `https://mikepattyn.nl/nl/workflows` | article | indexable | Orchestrators |
+| `https://mikepattyn.nl/` | selector | deliberately excluded | `noindex` language chooser; x-default on the `/en/…` URLs |
+| `https://mikepattyn.nl/en/rabbithole` | article | deliberately excluded | Incomplete this run: locale URL exists, full indexability deferred |
+| `https://mikepattyn.nl/nl/rabbithole` | article | deliberately excluded | Same |
+| `https://www.mikepattyn.nl/*` | — | not a page | Pending platform 301 to apex |
+| unknown paths | — | not a page | Origin 404 body is `/404.html` (pending platform error mapping) |
+| `/cv.html`, `/thanks.html`, `/underhood.html`, `/workflows.html`, `/rabbithole.html` | — | not a page | Old unprefixed files are not emitted; pending 301s in the hosting wave |

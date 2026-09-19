@@ -303,6 +303,9 @@ a {
 
 .locale-toggle__btn {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   color: var(--on-surface-variant);
@@ -315,6 +318,7 @@ a {
   min-height: 2.75rem;
   padding: 0.3rem 0.55rem;
   border-radius: 0.25rem;
+  text-decoration: none;
   cursor: pointer;
   transition:
     opacity 0.2s ease,

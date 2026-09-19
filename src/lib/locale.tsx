@@ -4,10 +4,10 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
 import { copy, type Copy, type Locale } from "@/lib/i18n";
+import { swapLocalePath } from "@/lib/paths.js";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -17,36 +17,25 @@ type LocaleContextValue = {
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-function detectLocale(): Locale {
-  try {
-    const stored = localStorage.getItem("locale");
-    if (stored === "en" || stored === "nl") return stored;
-    if (String(navigator.language || "").toLowerCase().startsWith("nl")) return "nl";
-  } catch {
-    /* ignore */
-  }
-  return "en";
-}
-
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    setLocaleState(detectLocale());
-  }, []);
-
+export function LocaleProvider({
+  locale,
+  children,
+}: {
+  locale: Locale;
+  children: ReactNode;
+}) {
   useEffect(() => {
     document.documentElement.lang = locale;
   }, [locale]);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    try {
-      localStorage.setItem("locale", next);
-    } catch {
-      /* ignore */
-    }
-  }, []);
+  const setLocale = useCallback(
+    (next: Locale) => {
+      if (typeof window === "undefined" || next === locale) return;
+      const nextPath = swapLocalePath(window.location.pathname, next);
+      window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
+    },
+    [locale],
+  );
 
   const value = useMemo(
     () => ({ locale, setLocale, t: copy[locale] }),
