@@ -158,8 +158,9 @@ function Work({ t }: { t: Copy }) {
         <ul className="mt-14 grid gap-16">
           {featuredWork.map((item, i) => (
             <li
+              id={item.id}
               key={item.id}
-              className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12"
+              className="grid scroll-mt-20 items-center gap-8 lg:grid-cols-2 lg:gap-12"
             >
               <a
                 href={item.href}

@@ -5,7 +5,7 @@ export const featuredWork = [
     href: "https://learn.mikepattyn.nl",
     host: "learn.mikepattyn.nl",
     image: "/images/work/learn.jpg",
-    stack: ["Angular", "AWS CDK", "ADHD-safe classroom"],
+    stack: ["Grok", "AWS lessons", "ADHD-safe classroom"],
   },
   {
     id: "flyingdarts" as const,

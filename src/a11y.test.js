@@ -487,6 +487,9 @@ describe('Copy', () => {
     assert.match(nl.other.memries, /fotobibliotheek zoals die hoort te zijn/);
     assert.match(nl.other.memries, /https:\/\/github\.com\/neeohw\/memries/);
     assert.equal(typeof en.work.toolsTitle, 'string');
+    assert.match(en.work.learn, /Grok/);
+    assert.match(nl.work.learn, /Grok/);
+    assert.match(en.work.learn, /learn\.mikepattyn\.nl/);
     assert.equal(typeof nl.work.lumenPrivacy, 'string');
     assert.equal(typeof en.cv.title, 'string');
     assert.equal(typeof nl.cv.lede, 'string');

@@ -74,6 +74,8 @@ export const en = {
     title: 'Products, shipped and live',
     lede: 'Running products, each designed, built, and operated by one person — from the first sketch to the server bill.',
     toolsTitle: 'Tools I keep sharp with',
+    learn:
+      'Small AWS lessons, one step on screen. Written to be safe for ADHD brains: no streaks, no quizzes, nothing that expires. The classroom lives on Grok; learn.mikepattyn.nl still opens the same room, and it teaches the path I use — scaffold an umbrella, send mail, then wire a Lambda.',
     barbershop:
       'Dutch barbershops were juggling bookings by phone and paper. I built a multi-tenant booking platform — a customer-facing portal plus a staff dashboard — that a shop can adopt without any IT department. Every shop gets its own portal from one system — so improvements reach all of them at once.',
     flyingdarts:

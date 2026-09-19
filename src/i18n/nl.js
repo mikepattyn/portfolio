@@ -74,6 +74,8 @@ export const nl = {
     title: 'Producten, opgeleverd en live',
     lede: 'Draaiende producten, elk ontworpen, gebouwd en beheerd door één persoon — van de eerste schets tot de serverrekening.',
     toolsTitle: 'Tools waarmee ik scherp blijf',
+    learn:
+      'Kleine AWS-lessen, één stap op het scherm. Geschreven om veilig te zijn voor ADHD-breinen: geen streaks, geen quizzen, niets dat verloopt. De klas woont op Grok; learn.mikepattyn.nl opent nog steeds dezelfde kamer, en leert het pad dat ik zelf gebruik — scaffold een umbrella, verstuur mail, en wire daarna een Lambda.',
     barbershop:
       'Nederlandse kapperszaken jongleerden met afspraken via telefoon en papier. Ik bouwde een multi-tenant boekingsplatform — een klantportaal plus een dashboard voor medewerkers — dat een zaak zonder IT-afdeling in gebruik kan nemen. Elke zaak krijgt een eigen portaal uit één systeem — zodat verbeteringen iedereen tegelijk bereiken.',
     flyingdarts:

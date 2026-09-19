@@ -28,6 +28,20 @@ describe('V03 contact form', () => {
   });
 });
 
+describe('V03 Learn work card', () => {
+  test('features the Grok classroom on the mikepattyn hostname', () => {
+    const work = readFileSync(join(root, 'src/lib/work.ts'), 'utf8');
+    const copy = readFileSync(join(root, 'src/lib/i18n.ts'), 'utf8');
+    const learn = work.match(/\{\s*id: "learn"[\s\S]*?\},/)?.[0] ?? '';
+    assert.match(learn, /https:\/\/learn\.mikepattyn\.nl/);
+    assert.match(learn, /Grok/);
+    assert.doesNotMatch(learn, /Angular/);
+    assert.match(copy, /The classroom lives on Grok/);
+    assert.match(copy, /De klas woont op Grok/);
+    assert.match(form, /id=\{item\.id\}/);
+  });
+});
+
 describe('V03 CV downloads', () => {
   test('locale-aware PDFs live on the Pattynologies CDN', () => {
     const links = readFileSync(join(root, 'src/lib/links.ts'), 'utf8');
