@@ -29,7 +29,7 @@ Home-page section at `/#specialists` for people Mike learned from who were not e
 _Avoid_: treating Authress or The Coding Base as companies Mike worked at; putting these thanks back inside **TeamsSection**; listing Maarten Vergouwe here; a separate specialists page; putting Specialists in the primary nav
 
 **SiteFooter**:
-Shared footer on every Portfolio page (home, **UnderTheHoodPage**, rabbit hole, workflows, thanks, **CV**). Brand, mail / LinkedIn / **CV** / **Thanks**, plus the skin switch between classic and **ElectricEmerald**. Copy under `footer.*` plus `nav.thanks`.
+Shared footer on every Portfolio page (home, **UnderTheHoodPage**, rabbit hole, workflows, thanks, **CV**). Brand, mail / LinkedIn / Facebook / Instagram / Threads / TikTok / **CV** / **Thanks**, plus the skin switch between classic and **ElectricEmerald**. Copy under `footer.*` plus `nav.thanks`.
 _Avoid_: GitHub links; SETTL. / Financieel Fit thanks; Cursor / Fork / Grok Bot credits; a platform sentence; putting that thanks back in **TeamsSection**; putting the skin switch in the nav or on a query param
 
 **ThanksPage**:
@@ -72,7 +72,7 @@ Vite · plain HTML/CSS/JS · Google Fonts (Newsreader, Bricolage Grotesque, JetB
 
 ## Contact
 
-General contact copy points to `info@mikepattyn.nl` (footer + contact section), plus LinkedIn and the **CV**. The public site does not link to GitHub in the footer, nav, or contact copy. The footer and primary nav also link to **ThanksPage**. The `/underhood.html#publish-here` table may link the Package gitlink remotes (`authress-angular`, `authress-flutter`) plus their npm / pub.dev package pages.
+General contact copy points to `info@mikepattyn.nl` (footer + contact section), plus LinkedIn, Facebook, Instagram, Threads, TikTok, and the **CV**. The public site does not link to GitHub in the footer, nav, or contact copy. The footer and primary nav also link to **ThanksPage**. The `/underhood.html#publish-here` table may link the Package gitlink remotes (`authress-angular`, `authress-flutter`) plus their npm / pub.dev package pages.
 
 The contact form posts JSON to **`POST /api/contact`** on the same origin. The Lambda sends via Zoho SMTP from `info@mikepattyn.nl` to `info@mikepattyn.nl` with the visitor's address as `Reply-To`.
 

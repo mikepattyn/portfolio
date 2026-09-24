@@ -11,6 +11,9 @@ const rabbit = readFileSync(join(root, 'rabbithole.html'), 'utf8');
 const workflows = readFileSync(join(root, 'workflows.html'), 'utf8');
 const thanksPath = join(root, 'thanks.html');
 const thanks = existsSync(thanksPath) ? readFileSync(thanksPath, 'utf8') : '';
+const linksSource = readFileSync(join(root, 'src/lib/links.ts'), 'utf8');
+const chrome = readFileSync(join(root, 'src/components/site-chrome.tsx'), 'utf8');
+const homeTsx = readFileSync(join(root, 'src/routes/home.tsx'), 'utf8');
 const classicCss = readFileSync(join(root, 'src/styles.classic.css'), 'utf8');
 const stitchCss = readFileSync(join(root, 'src/styles.stitch.css'), 'utf8');
 const skinCss = readFileSync(join(root, 'src/styles.skin.css'), 'utf8');
@@ -33,12 +36,20 @@ function footerBlock(html) {
   return match[0];
 }
 
+function assertSocialProfiles(source) {
+  assert.match(source, /facebook\.com\/mike\.pattyn\.963/);
+  assert.match(source, /instagram\.com\/officialmikepattyn/);
+  assert.match(source, /threads\.com\/@officialmikepattyn/);
+  assert.match(source, /tiktok\.com\/@officialmikepattyn/);
+}
+
 function assertSlimFooter(html) {
   const footer = footerBlock(html);
   assert.match(footer, /class="site-footer__brand"/);
   assert.match(footer, /data-i18n-aria="footer\.ariaLabel"/);
   assert.match(footer, /href="mailto:info@mikepattyn\.nl"/);
   assert.match(footer, /linkedin\.com\/in\/mike-pattyn-033681103/);
+  assertSocialProfiles(footer);
   assert.match(footer, /href="\/cv\.html"/);
   assert.match(footer, /data-i18n="footer\.cv"/);
   assert.doesNotMatch(footer, /framer\.website/);
@@ -329,6 +340,20 @@ describe.skip('CV page (replaced by V03 React)', () => {
     assert.deepEqual(navHrefs(rabbit), navHrefs(cv));
     assert.doesNotMatch(cv, /github\.com/);
     assert.doesNotMatch(cv, /06 26|1989|date of birth/i);
+  });
+});
+
+describe('Social profiles', () => {
+  test('stores Facebook, Instagram, Threads, and TikTok on the shared link map', () => {
+    assertSocialProfiles(linksSource);
+  });
+
+  test('puts those profiles after LinkedIn in the React footer and home contact row', () => {
+    const afterLinkedIn =
+      /links\.linkedin[\s\S]*links\.facebook[\s\S]*links\.instagram[\s\S]*links\.threads[\s\S]*links\.tiktok/;
+    assert.match(chrome, afterLinkedIn);
+    assert.match(homeTsx, afterLinkedIn);
+    assertSocialProfiles(`${linksSource}\n${chrome}\n${homeTsx}`);
   });
 });
 

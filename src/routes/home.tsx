@@ -7,7 +7,15 @@ import { useTheme } from "@/lib/theme";
 import { CONTACT_ENDPOINT, TURNSTILE_SITE_KEY, loadTurnstileScript } from "@/lib/turnstile";
 import { featuredWork, secondaryWork } from "@/lib/work";
 import { cvPdfFilename, cvPdfUrl, links } from "@/lib/links";
-import { AlienIcon, GitHubIcon, LinkedInIcon } from "@/components/social-icons";
+import {
+  AlienIcon,
+  FacebookIcon,
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  ThreadsIcon,
+  TikTokIcon,
+} from "@/components/social-icons";
 import type { Copy } from "@/lib/i18n";
 
 export function Home() {
@@ -447,7 +455,7 @@ function Contact({ t }: { t: Copy }) {
           <a href="mailto:info@mikepattyn.nl" className="text-sm underline decoration-line-strong underline-offset-4">
             info@mikepattyn.nl
           </a>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <a
               href={links.linkedin}
               target="_blank"
@@ -456,6 +464,42 @@ function Contact({ t }: { t: Copy }) {
               className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
             >
               <LinkedInIcon className="size-4" />
+            </a>
+            <a
+              href={links.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
+            >
+              <FacebookIcon className="size-4" />
+            </a>
+            <a
+              href={links.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
+            >
+              <InstagramIcon className="size-4" />
+            </a>
+            <a
+              href={links.threads}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Threads"
+              className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
+            >
+              <ThreadsIcon className="size-4" />
+            </a>
+            <a
+              href={links.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="inline-flex size-10 items-center justify-center rounded-full text-ink shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-ink)_14%,transparent)] hover:bg-paper-2"
+            >
+              <TikTokIcon className="size-4" />
             </a>
             <a
               href={links.github}
